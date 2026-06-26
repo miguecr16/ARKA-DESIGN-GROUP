@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Arka Design Group Divisions</title>
+  <meta name="description" content="Discover Arka Design Group's premium services. We merge architectural space planning, bespoke millwork manufacturing, and master building contracting.">
+  <link rel="canonical" href="https://arkadesigngroup.com/services.html">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arkadesigngroup.com/services.html">
+  <meta property="og:title" content="Our Services | Arka Design Group Divisions">
+  <meta property="og:description" content="Discover Arka Design Group's premium services. We merge architectural space planning, bespoke millwork manufacturing, and master building contracting.">
+  <meta property="og:image" content="https://arkadesigngroup.com/assets/images/estate_exterior.webp">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://arkadesigngroup.com/services.html">
+  <meta property="twitter:title" content="Our Services | Arka Design Group Divisions">
+  <meta property="twitter:description" content="Discover Arka Design Group's premium services. We merge architectural space planning, bespoke millwork manufacturing, and master building contracting.">
+  <meta property="twitter:image" content="https://arkadesigngroup.com/assets/images/estate_exterior.webp">
+
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "GeneralContractor",
+        "@id": "https://arkadesigngroup.com/#organization",
+        "name": "Arka Design Group",
+        "url": "https://arkadesigngroup.com",
+        "logo": "https://arkadesigngroup.com/assets/images/kitchen_hero.webp",
+        "image": "https://arkadesigngroup.com/assets/images/estate_exterior.webp",
+        "telephone": "+18136109309",
+        "email": "info@arkadg.com",
+        "priceRange": "$$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ocala Studio & Workshop",
+          "addressLocality": "Ocala",
+          "addressRegion": "FL",
+          "postalCode": "34471",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 29.1872,
+          "longitude": -82.1401
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Interior Architecture & Space Planning",
+        "provider": {
+          "@id": "https://arkadesigngroup.com/#organization"
+        },
+        "description": "Developing spatial narratives, floor plan integrations, and material maps tailored for high-end indoor-outdoor Florida lifestyles."
+      },
+      {
+        "@type": "Service",
+        "name": "Bespoke Millwork & Cabinetry Manufacture",
+        "provider": {
+          "@id": "https://arkadesigngroup.com/#organization"
+        },
+        "description": "Custom-fabricating European cabinet systems, walnut dressing wardrobes, and monolithic wall panels with millimeter alignments."
+      },
+      {
+        "@type": "Service",
+        "name": "Master General Contracting",
+        "provider": {
+          "@id": "https://arkadesigngroup.com/#organization"
+        },
+        "description": "Arka Design Group manages foundations, framing, and on-site assembly with zero tolerance for deviations."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- TOAST NOTIFICATION FOR COPY TO CLIPBOARD -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">Copied to clipboard</div>
+
+  <!-- REUSABLE NAVBAR -->
+  <arka-navbar></arka-navbar>
+
+  <main id="main-content" tabindex="-1" style="padding-top: calc(var(--space-4xl) + var(--space-xl));">
+    
+    <!-- DYNAMIC HERO -->
+    <arka-hero 
+      title="Our Design-Build Offerings" 
+      lead="A single-source path to residential perfection. We manage your estate project from initial visual curation through structural foundation build, millwork fabrication, and custom handover." 
+      bg-image="assets/images/estate_exterior.webp"
+      label="Capabilities">
+    </arka-hero>
+
+    <!-- DETAILED SERVICE BLOCKS -->
+    <section class="container" style="margin-top: var(--space-4xl); margin-bottom: var(--space-4xl);">
+      <div class="grid grid-2" style="align-items: center; margin-bottom: var(--space-3xl);">
+        <div>
+          <span class="section-label">Division 01</span>
+          <h2 class="h2" style="margin-bottom: var(--space-md);">Interior Architecture & Space Planning</h2>
+          <p style="color: var(--color-muted); margin-bottom: var(--space-md);">Luxury living demands intelligent spatial planning. We curate floor plan flows, lighting layouts, and material maps tailored for high-end Florida indoor-outdoor lifestyles. We turn your vision into comprehensive CAD elevations and high-fidelity 3D renderings.</p>
+          <a href="contact.html?intent=spatial" class="btn btn-secondary" style="margin-top: var(--space-sm); display: inline-block;" id="cta-service-spatial">Discuss Spatial Curation</a>
+          <arka-whatsapp-button variant="primary" service="spatial" position="services-div1" style="margin-top: var(--space-sm); display: inline-block; margin-left: var(--space-xs); vertical-align: middle;"></arka-whatsapp-button>
+        </div>
+        <div class="philosophy-media">
+          <img src="assets/images/kitchen_hero.webp" alt="Concept kitchen rendering detailing walnut wood grains and Calacatta marble matching" width="600" height="450" loading="lazy">
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="align-items: center; margin-bottom: var(--space-3xl);">
+        <div class="philosophy-media" style="order: 2;">
+          <img src="assets/images/cabinetry_detail.webp" alt="Cabinet joinery showing white oak craftsmanship and alignment tolerances" width="600" height="450" loading="lazy">
+        </div>
+        <div style="order: 1;">
+          <span class="section-label">Division 02</span>
+          <h2 class="h2" style="margin-bottom: var(--space-md);">Bespoke Millwork & Cabinetry Manufacture</h2>
+          <p style="color: var(--color-muted); margin-bottom: var(--space-md);">Our roots are in precision woodwork. In our Ocala workshop, we custom-fabricate European cabinet systems, walnut dressing wardrobes, and monolithic wall panels. Sourcing hand-selected wood veneers and premium metal pulls, we guarantee alignments to the millimeter.</p>
+          <a href="contact.html?intent=millwork" class="btn btn-secondary" style="margin-top: var(--space-sm); display: inline-block;" id="cta-service-millwork">Commission Cabinetry</a>
+          <arka-whatsapp-button variant="primary" service="cabinets" position="services-div2" style="margin-top: var(--space-sm); display: inline-block; margin-left: var(--space-xs); vertical-align: middle;"></arka-whatsapp-button>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <span class="section-label">Division 03</span>
+          <h2 class="h2" style="margin-bottom: var(--space-md);">Master General Contracting</h2>
+          <p style="color: var(--color-muted); margin-bottom: var(--space-md);">Arka manages site foundations, structural framing, plumbing/electrical integrations, and on-site assembly. Our custom-builder management model ensures structural integrity matches aesthetic intent.</p>
+          <a href="contact.html?intent=construction" class="btn btn-secondary" style="margin-top: var(--space-sm); display: inline-block;" id="cta-service-construction">Consult General Contractor</a>
+          <arka-whatsapp-button variant="primary" service="construction" position="services-div3" style="margin-top: var(--space-sm); display: inline-block; margin-left: var(--space-xs); vertical-align: middle;"></arka-whatsapp-button>
+        </div>
+        <div class="philosophy-media">
+          <img src="assets/images/estate_exterior.webp" alt="High-end estate site assembly showing clean modern layout lines and pool reflections" width="600" height="400" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- REUSABLE CTA BANNER -->
+    <arka-cta-section></arka-cta-section>
+  </main>
+
+  <!-- REUSABLE GLOBAL FOOTER -->
+  <arka-footer></arka-footer>
+
+  <script src="components.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

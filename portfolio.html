@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Portfolio | Arka Design Group Projects</title>
+  <meta name="description" content="Explore Arka Design Group's portfolio of custom luxury kitchens, bespoke millwork joinery, and architectural panels across Winter Park and Windermere.">
+  <link rel="canonical" href="https://arkadesigngroup.com/portfolio.html">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arkadesigngroup.com/portfolio.html">
+  <meta property="og:title" content="Our Portfolio | Arka Design Group Projects">
+  <meta property="og:description" content="Explore Arka Design Group's portfolio of custom luxury kitchens, bespoke millwork joinery, and architectural panels across Winter Park and Windermere.">
+  <meta property="og:image" content="https://arkadesigngroup.com/assets/images/estate_exterior.webp">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://arkadesigngroup.com/portfolio.html">
+  <meta property="twitter:title" content="Our Portfolio | Arka Design Group Projects">
+  <meta property="twitter:description" content="Explore Arka Design Group's portfolio of custom luxury kitchens, bespoke millwork joinery, and architectural panels across Winter Park and Windermere.">
+  <meta property="twitter:image" content="https://arkadesigngroup.com/assets/images/estate_exterior.webp">
+
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "GeneralContractor",
+        "@id": "https://arkadesigngroup.com/#organization",
+        "name": "Arka Design Group",
+        "url": "https://arkadesigngroup.com",
+        "logo": "https://arkadesigngroup.com/assets/images/kitchen_hero.webp",
+        "image": "https://arkadesigngroup.com/assets/images/estate_exterior.webp",
+        "telephone": "+18136109309",
+        "email": "info@arkadg.com",
+        "priceRange": "$$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ocala Studio & Workshop",
+          "addressLocality": "Ocala",
+          "addressRegion": "FL",
+          "postalCode": "34471",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 29.1872,
+          "longitude": -82.1401
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Interior Architecture & Space Planning",
+        "provider": {
+          "@id": "https://arkadesigngroup.com/#organization"
+        },
+        "description": "Developing spatial narratives, floor plan integrations, and material maps tailored for high-end indoor-outdoor Florida lifestyles."
+      },
+      {
+        "@type": "Service",
+        "name": "Bespoke Millwork & Cabinetry Manufacture",
+        "provider": {
+          "@id": "https://arkadesigngroup.com/#organization"
+        },
+        "description": "Custom-fabricating European cabinet systems, walnut dressing wardrobes, and monolithic wall panels with millimeter alignments."
+      },
+      {
+        "@type": "Service",
+        "name": "Master General Contracting",
+        "provider": {
+          "@id": "https://arkadesigngroup.com/#organization"
+        },
+        "description": "Arka Design Group manages foundations, framing, and on-site assembly with zero tolerance for deviations."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- TOAST NOTIFICATION FOR COPY TO CLIPBOARD -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">Copied to clipboard</div>
+
+  <!-- REUSABLE NAVBAR -->
+  <arka-navbar></arka-navbar>
+
+  <main id="main-content" tabindex="-1" style="padding-top: calc(var(--space-4xl) + var(--space-xl)); padding-bottom: var(--space-4xl);">
+    <section class="container">
+      <div class="text-center" style="max-width: 700px; margin: 0 auto var(--space-xxl);">
+        <span class="section-label">Select Curation</span>
+        <h1 class="h1">The Gallery of Completed Commissions</h1>
+        <p class="lead" style="margin-top: var(--space-sm);">A visual record of our design-build custom projects. Inspect our craftsmanship across Florida's premier communities.</p>
+      </div>
+
+      <!-- FILTER CONTROLS -->
+      <div class="flex" style="justify-content: center; margin-bottom: var(--space-xxl); flex-wrap: wrap; gap: var(--space-sm);" role="tablist" aria-label="Project Filter Options">
+        <button class="portal-btn active filter-btn" data-filter="all" id="filter-all-btn" role="tab" aria-selected="true">All Works</button>
+        <button class="portal-btn filter-btn" data-filter="kitchens" id="filter-kitchens-btn" role="tab" aria-selected="false">Atelier Kitchens</button>
+        <button class="portal-btn filter-btn" data-filter="wardrobes" id="filter-wardrobes-btn" role="tab" aria-selected="false">Bespoke Closets</button>
+        <button class="portal-btn filter-btn" data-filter="panels" id="filter-panels-btn" role="tab" aria-selected="false">Integrated Panels</button>
+      </div>
+
+      <!-- PROJECT GRID -->
+      <div class="grid grid-2" id="gallery-grid">
+        <arka-project-card 
+          title="The Calacatta Atelier Kitchen" 
+          subtitle="Windermere, FL" 
+          image="assets/images/kitchen_hero.webp" 
+          category="kitchens"
+          desc="A seamless convergence of matched Calacatta marble slab islands, flat-panel walnut cabinet systems, and integrated warm LED accent lights.">
+        </arka-project-card>
+
+        <arka-project-card 
+          title="Minimalist White Oak Joinery" 
+          subtitle="Winter Park, FL" 
+          image="assets/images/cabinetry_detail.webp" 
+          category="wardrobes"
+          desc="A bespoke dressing closet showing mitered oak joinery, leather drawer liners, and integrated warm-spectrum lighting.">
+        </arka-project-card>
+
+        <arka-project-card 
+          title="Golden Oak Neoclassical Manor" 
+          subtitle="Golden Oak, FL" 
+          image="assets/images/estate_exterior.webp" 
+          category="panels"
+          desc="A full-scale design-build estate featuring modern concrete lines, floor-to-ceiling glass systems, and custom walnut wall panels.">
+        </arka-project-card>
+      </div>
+
+      <!-- PORTFOLIO CRO CTA -->
+      <div style="margin-top: var(--space-4xl); text-align: center;">
+        <arka-cta-section 
+          title="Ready to manifest your spatial vision?" 
+          desc="Apply for our select design-build registry to secure your site commission.">
+        </arka-cta-section>
+      </div>
+    </section>
+  </main>
+
+  <!-- REUSABLE FOOTER -->
+  <arka-footer></arka-footer>
+
+  <script src="components.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
