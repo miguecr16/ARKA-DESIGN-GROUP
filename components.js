@@ -19,7 +19,16 @@ class ArkaNavbar extends HTMLElement {
             ARKA <span>DESIGN GROUP</span>
           </a>
           
-          <nav class="flex" style="align-items: center;" aria-label="Main Navigation">
+          <!-- HAMBURGER BUTTON (Mobile only) -->
+          <button class="nav-toggle-btn" id="nav-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12" class="line-mid"></line>
+              <line x1="3" y1="6" x2="21" y2="6" class="line-top"></line>
+              <line x1="3" y1="18" x2="21" y2="18" class="line-bot"></line>
+            </svg>
+          </button>
+          
+          <nav class="flex site-nav" id="main-nav" aria-label="Main Navigation">
             <a href="index.html" class="btn-text ${activePage === 'index.html' ? 'active' : ''}" id="nav-home" style="${activePage === 'index.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'index.html' ? 'page' : 'false'}">Home</a>
             <a href="services.html" class="btn-text ${activePage === 'services.html' ? 'active' : ''}" id="nav-services" style="${activePage === 'services.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'services.html' ? 'page' : 'false'}">Services</a>
             <a href="portfolio.html" class="btn-text ${activePage === 'portfolio.html' ? 'active' : ''}" id="nav-portfolio" style="${activePage === 'portfolio.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'portfolio.html' ? 'page' : 'false'}">Portfolio</a>
@@ -45,6 +54,46 @@ class ArkaNavbar extends HTMLElement {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
     `;
+
+    // Bind mobile menu toggle listeners
+    const toggleBtn = this.querySelector('#nav-menu-toggle');
+    const nav = this.querySelector('#main-nav');
+    if (toggleBtn && nav) {
+      const toggleMenu = (open) => {
+        const shouldOpen = typeof open === 'boolean' ? open : toggleBtn.getAttribute('aria-expanded') !== 'true';
+        toggleBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+        toggleBtn.setAttribute('aria-label', shouldOpen ? 'Close Navigation Menu' : 'Open Navigation Menu');
+        nav.classList.toggle('nav-open', shouldOpen);
+        document.body.classList.toggle('nav-lock', shouldOpen);
+      };
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      // Close menu when a link inside is clicked
+      nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+          toggleMenu(false);
+        }
+      });
+
+      // Close on Esc key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('nav-open')) {
+          toggleMenu(false);
+          toggleBtn.focus();
+        }
+      });
+
+      // Close when clicking outside header container on mobile
+      document.addEventListener('click', (e) => {
+        if (nav.classList.contains('nav-open') && !this.contains(e.target)) {
+          toggleMenu(false);
+        }
+      });
+    }
 
     // Bind scroll listener
     const header = this.querySelector('.site-header');
@@ -359,7 +408,7 @@ class ArkaFooter extends HTMLElement {
 
           <div class="footer-copyright">
             <div>&copy; 2026 Arka Design Group LLC. All Rights Reserved.</div>
-            <div class="flex" style="gap: var(--space-md); align-items: center;">
+            <div class="flex" style="gap: var(--space-md); align-items: center; flex-wrap: wrap;">
               <a href="index.html?view=specs" style="color: var(--color-brass);">Design Specs Portal</a>
               <span>|</span>
               <span>Bespoke Florida Architecture & Cabinetry</span>
