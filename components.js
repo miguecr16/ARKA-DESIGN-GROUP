@@ -16,7 +16,7 @@ class ArkaNavbar extends HTMLElement {
       <header class="site-header" id="main-header">
         <div class="container flex-between">
           <a href="index.html" class="logo" id="header-logo-link">
-            ARKA <span>DESIGN GROUP</span>
+            <img src="assets/images/logo.png" alt="Arka Design Group Logo" style="height: 48px; width: auto; display: block; object-fit: contain;">
           </a>
           
           <!-- HAMBURGER BUTTON (Mobile only) -->
@@ -375,7 +375,9 @@ class ArkaFooter extends HTMLElement {
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <h4>ARKA <span>DESIGN GROUP</span></h4>
+              <div style="margin-bottom: var(--space-md);">
+                <img src="assets/images/logo.png" alt="Arka Design Group Logo" style="height: 52px; width: auto; display: block; object-fit: contain;">
+              </div>
               <p>A premium Design & Build company crafting bespoke residential architecture and master woodwork installations in Central Florida.</p>
             </div>
             <div class="footer-links">
