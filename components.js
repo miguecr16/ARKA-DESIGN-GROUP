@@ -618,25 +618,55 @@ class ArkaIntakeForm extends HTMLElement {
           currentStep++;
           updateFormState();
         } else {
-          const budgetValue = this.querySelector('#comm-budget').value;
-          form.style.display = 'none';
-          if (indicatorContainer) indicatorContainer.style.display = 'none';
-          const trustBar = this.querySelector('.form-trust-bar');
-          if (trustBar) trustBar.style.display = 'none';
+          // Disable form elements and show loading state
+          nextBtn.disabled = true;
+          prevBtn.disabled = true;
+          const originalText = nextBtn.textContent;
+          nextBtn.textContent = 'Initiating Commission...';
 
-          if (budgetValue === 'tier-1') {
-            if (successUnqualified) {
-              successUnqualified.style.display = 'block';
-              const heading = successUnqualified.querySelector('h3');
-              if (heading) heading.focus();
+          const payload = {
+            name: this.querySelector('#comm-name').value,
+            email: this.querySelector('#comm-email').value,
+            phone: this.querySelector('#comm-phone').value,
+            city: this.querySelector('#comm-neighborhood').value,
+            budget: this.querySelector('#comm-budget').value,
+            message: this.querySelector('#comm-description').value,
+            page: window.location.pathname.split('/').pop() || 'contact.html'
+          };
+
+          fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+          .then(res => {
+            if (!res.ok) {
+              return res.json().then(errData => {
+                throw new Error(errData.error || 'Server error occurred');
+              });
             }
-          } else {
-            if (successQualified) {
-              successQualified.style.display = 'block';
-              const heading = successQualified.querySelector('h3');
-              if (heading) heading.focus();
+            return res.json();
+          })
+          .then(data => {
+            if (data.success) {
+              // Redirect to thank-you page passing Lead ID and Budget tier
+              window.location.href = `thank-you.html?leadId=${encodeURIComponent(data.leadId)}&budget=${encodeURIComponent(payload.budget)}`;
+            } else {
+              throw new Error(data.error || 'Submission failed');
             }
-          }
+          })
+          .catch(err => {
+            console.error('Submission error:', err);
+            const toastEvt = new CustomEvent('toast', { detail: err.message || 'Submission failed. Please try again.', bubbles: true });
+            document.dispatchEvent(toastEvt);
+            
+            // Re-enable form elements and restore state
+            nextBtn.disabled = false;
+            prevBtn.disabled = false;
+            nextBtn.textContent = originalText;
+          });
         }
       });
 

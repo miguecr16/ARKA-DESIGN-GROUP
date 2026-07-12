@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commission Request Received | Arka Design Group</title>
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    .thank-you-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 60vh;
+      padding: var(--space-xxl) 0;
+    }
+    
+    .success-icon-wrapper {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .lead-id-badge {
+      display: inline-block;
+      background: var(--color-alabaster);
+      border: 1px dashed var(--color-border-dark);
+      padding: var(--space-md) var(--space-xl);
+      border-radius: var(--radius-sm);
+      margin: var(--space-lg) 0;
+    }
+    
+    .lead-id-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-caption);
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: var(--space-xxs);
+    }
+    
+    .lead-id-value {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--color-brass);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    
+    .thank-you-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-xl);
+      width: 100%;
+      max-width: 500px;
+    }
+    
+    .thank-you-actions .btn {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    [data-theme="light"] .lead-id-badge {
+      background: var(--color-alabaster);
+      border-color: rgba(17, 17, 17, 0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">Copied to clipboard</div>
+
+  <!-- NAVBAR -->
+  <arka-navbar></arka-navbar>
+
+  <main id="main-content" tabindex="-1" style="padding-top: calc(var(--space-4xl) + var(--space-xl));">
+    <section class="container">
+      <div class="thank-you-container">
+        
+        <!-- SUCCESS ILLUSTRATION -->
+        <div class="success-icon-wrapper" id="success-qualified-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 64px; height: 64px; stroke: var(--color-brass); stroke-width: 1px; fill: none;">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        
+        <div class="success-icon-wrapper" id="success-unqualified-icon" style="display: none;">
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 64px; height: 64px; stroke: var(--color-muted); stroke-width: 1px; fill: none;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </div>
+
+        <!-- CONDITIONAL HEADINGS -->
+        <div id="qualified-text">
+          <span class="section-label">Intake Approved</span>
+          <h1 class="h1" style="margin-bottom: var(--space-sm);">Commission Request Received</h1>
+          <p class="lead" style="max-width: 600px; margin: 0 auto;">Your project parameters qualify for our bespoke consultation. Our Principal Architect will contact you directly within 24 hours to coordinate a private studio tour or site consult.</p>
+        </div>
+
+        <div id="unqualified-text" style="display: none;">
+          <span class="section-label">Intake Received</span>
+          <h1 class="h1" style="margin-bottom: var(--space-sm);">Invitation Under Review</h1>
+          <p class="lead" style="max-width: 600px; margin: 0 auto;">We appreciate your interest in Arka. Due to our current active commitments, our studio coordinator is reviewing project parameters to ensure alignment with our specialized design-build equipment. We will contact you soon.</p>
+        </div>
+
+        <!-- UNIQUE LEAD ID -->
+        <div class="lead-id-badge">
+          <div class="lead-id-label">Lead reference ID</div>
+          <div class="lead-id-value" id="rendered-lead-id">ARKA-PENDING</div>
+        </div>
+
+        <p style="color: var(--color-muted); font-size: var(--text-small); max-width: 500px; margin: 0 auto;">
+          If you contact our studio by phone or WhatsApp, please reference your Lead ID above.
+        </p>
+
+        <!-- ACTION BUTTONS -->
+        <div class="thank-you-actions">
+          <a href="#" id="thank-you-calendly-btn" class="btn btn-primary" style="display: none;">Schedule Consultation</a>
+          <a href="#" id="thank-you-wa-btn" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Continue on WhatsApp</a>
+          <a href="index.html" class="btn btn-text" style="width: 100%; text-align: center; justify-content: center; margin-top: var(--space-md);">Return to Studio</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- REUSABLE FOOTER -->
+  <arka-footer></arka-footer>
+
+  <script src="components.js"></script>
+  <script src="index.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Parse URL Parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const leadId = urlParams.get('leadId') || 'ARKA-PENDING';
+      const budget = urlParams.get('budget') || 'tier-2';
+      
+      const isQualified = budget !== 'tier-1';
+      
+      // Render Lead ID
+      const leadIdContainer = document.getElementById('rendered-lead-id');
+      if (leadIdContainer) {
+        leadIdContainer.textContent = leadId;
+      }
+      
+      // 2. Render Conditional text and icons
+      if (!isQualified) {
+        document.getElementById('qualified-text').style.display = 'none';
+        document.getElementById('success-qualified-icon').style.display = 'none';
+        
+        document.getElementById('unqualified-text').style.display = 'block';
+        document.getElementById('success-unqualified-icon').style.display = 'block';
+      }
+      
+      // 3. Fetch Configuration from Backend API Config Endpoint
+      fetch('/api/config')
+        .then(res => res.json())
+        .then(config => {
+          const whatsappNumber = config.whatsappNumber || '18136109309';
+          const calendlyUrl = config.calendlyUrl || 'https://calendly.com/miguelangel16cr/30min';
+          
+          // Render WhatsApp button URL with pre-filled Lead ID
+          const messageText = `Hello!\nI recently submitted a request through your website.\nLead ID:\n${leadId}\nI'd like to continue the conversation.`;
+          const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+          
+          const waBtn = document.getElementById('thank-you-wa-btn');
+          if (waBtn) {
+            waBtn.href = whatsappUrl;
+          }
+          
+          // Render Calendly button URL (if qualified)
+          const calendlyBtn = document.getElementById('thank-you-calendly-btn');
+          if (calendlyBtn && isQualified) {
+            calendlyBtn.href = calendlyUrl;
+            calendlyBtn.style.display = 'inline-flex';
+          }
+        })
+        .catch(err => {
+          console.error('Error fetching public config:', err);
+          
+          // Fallback to defaults
+          const messageText = `Hello!\nI recently submitted a request through your website.\nLead ID:\n${leadId}\nI'd like to continue the conversation.`;
+          const whatsappUrl = `https://wa.me/18136109309?text=${encodeURIComponent(messageText)}`;
+          
+          const waBtn = document.getElementById('thank-you-wa-btn');
+          if (waBtn) waBtn.href = whatsappUrl;
+          
+          const calendlyBtn = document.getElementById('thank-you-calendly-btn');
+          if (calendlyBtn && isQualified) {
+            calendlyBtn.href = 'https://calendly.com/miguelangel16cr/30min';
+            calendlyBtn.style.display = 'inline-flex';
+          }
+        });
+    });
+  </script>
+</body>
+</html>
