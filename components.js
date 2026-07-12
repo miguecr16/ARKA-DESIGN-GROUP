@@ -16,7 +16,7 @@ class ArkaNavbar extends HTMLElement {
       <header class="site-header" id="main-header">
         <div class="container flex-between">
           <a href="index.html" class="logo" id="header-logo-link">
-            <img src="assets/images/logo.png" alt="Arka Design Group Logo" style="height: 75px; width: auto; display: block; object-fit: contain;">
+            <img src="assets/images/logo.png" alt="Arka Design Group Logo" style="height: 125px; width: auto; display: block; object-fit: contain;">
           </a>
           
           <!-- HAMBURGER BUTTON (Mobile only) -->
@@ -37,13 +37,6 @@ class ArkaNavbar extends HTMLElement {
             <a href="service-areas.html" class="btn-text ${activePage === 'service-areas.html' ? 'active' : ''}" id="nav-service-areas" style="${activePage === 'service-areas.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'service-areas.html' ? 'page' : 'false'}">Areas</a>
             <button class="btn-text portal-btn" id="nav-specs" data-view="design-system-view" style="display: none;">Specs</button>
             <a href="contact.html" class="btn btn-secondary" ${isContactActive} id="nav-contact" aria-current="${activePage === 'contact.html' ? 'page' : 'false'}">Contact</a>
-            
-            <!-- THEME SWITCHER -->
-            <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
-              <svg id="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"></path>
-              </svg>
-            </button>
           </nav>
         </div>
       </header>
@@ -114,35 +107,9 @@ class ArkaNavbar extends HTMLElement {
       }
     }, { passive: true });
 
-    // Bind Theme Toggle logic
-    const themeBtn = this.querySelector('#theme-toggle-btn');
-    const themeIconPath = this.querySelector('#theme-icon path');
-
-    const getTheme = () => localStorage.getItem('theme') || 'dark';
-    const setTheme = (theme) => {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      updateThemeIcon(theme);
-    };
-
-    const updateThemeIcon = (theme) => {
-      if (!themeIconPath) return;
-      if (theme === 'light') {
-        themeIconPath.setAttribute('d', 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z');
-      } else {
-        themeIconPath.setAttribute('d', 'M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z');
-      }
-    };
-
-    setTheme(getTheme());
-
-    if (themeBtn) {
-      themeBtn.addEventListener('click', () => {
-        const currentTheme = getTheme();
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-      });
-    }
+    // Force Dark Theme globally
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
   }
 }
 customElements.define('arka-navbar', ArkaNavbar);
@@ -376,7 +343,7 @@ class ArkaFooter extends HTMLElement {
           <div class="footer-grid">
             <div class="footer-brand">
               <div style="margin-bottom: var(--space-md);">
-                <img src="assets/images/logo.png" alt="Arka Design Group Logo" style="height: 110px; width: auto; display: block; object-fit: contain;">
+                <img src="assets/images/logo.png" alt="Arka Design Group Logo" style="height: 160px; width: auto; display: block; object-fit: contain;">
               </div>
               <p>A premium Design & Build company crafting bespoke residential architecture and master woodwork installations in Central Florida.</p>
             </div>

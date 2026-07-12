@@ -27,7 +27,7 @@ export function companyEmailTemplate(data, leadId) {
     <body>
       <div class="container">
         <div class="header">
-          <img src="https://github.com/miguecr16/ARKA-DESIGN-GROUP/raw/main/assets/images/logo.png" alt="Arka Design Group" style="height: 90px; width: auto; display: block; margin: 0 auto;">
+          <img src="https://github.com/miguecr16/ARKA-DESIGN-GROUP/raw/main/assets/images/logo.png" alt="Arka Design Group" style="height: 130px; width: auto; display: block; margin: 0 auto;">
         </div>
         <div class="content">
           <div class="lead-title">New Private Commission Intake</div>
@@ -134,7 +134,7 @@ export function customerEmailTemplate(data, leadId) {
     <body>
       <div class="container">
         <div class="header">
-          <img src="https://github.com/miguecr16/ARKA-DESIGN-GROUP/raw/main/assets/images/logo.png" alt="Arka Design Group" style="height: 90px; width: auto; display: block; margin: 0 auto;">
+          <img src="https://github.com/miguecr16/ARKA-DESIGN-GROUP/raw/main/assets/images/logo.png" alt="Arka Design Group" style="height: 130px; width: auto; display: block; margin: 0 auto;">
         </div>
         <div class="content">
           <div class="headline">Hello ${name},</div>

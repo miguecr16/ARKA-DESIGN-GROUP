@@ -139,8 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- THEME INITIALIZATION ---
-  const initialTheme = localStorage.getItem('theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', initialTheme);
+  document.documentElement.setAttribute('data-theme', 'dark');
 
   // --- PORTFOLIO FILTERING (gallery.html) ---
   const filterBtns = document.querySelectorAll('.filter-btn');
