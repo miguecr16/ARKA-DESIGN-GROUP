@@ -89,7 +89,6 @@ export function companyEmailTemplate(data, leadId) {
 export function customerEmailTemplate(data, leadId) {
   const { name, budget } = data;
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '18136109309';
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/miguelangel16cr/30min';
   const isQualified = budget !== 'tier-1';
   
   const whatsappMsg = encodeURIComponent(`Hello!\nI recently submitted a request through your website.\nLead ID:\n${leadId}\nI'd like to continue the conversation.`);
@@ -99,18 +98,11 @@ export function customerEmailTemplate(data, leadId) {
     ? 'Thank you for requesting a private commission with Arka Design Group. Your project parameters align with our specialized craft scope. Our Principal Architect will review your design goals within 24 hours to coordinate a consultation.'
     : 'Thank you for requesting a private commission with Arka Design Group. Due to our current active build schedule, our studio coordinator is reviewing project scopes to ensure alignment with our specialized design-build equipment. We will contact you soon.';
 
-  const actionButtons = isQualified
-    ? `
-      <div style="margin: 30px 0; text-align: center;">
-        <a href="${calendlyUrl}" class="button" style="background-color: #C5A880; color: #111111; padding: 14px 28px; text-decoration: none; font-family: monospace; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; display: inline-block; margin-right: 10px; margin-bottom: 10px;">Schedule Consultation</a>
-        <a href="${whatsappUrl}" class="button" style="background-color: transparent; border: 1px solid #C5A880; color: #C5A880; padding: 13px 27px; text-decoration: none; font-family: monospace; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; display: inline-block; margin-bottom: 10px;">Continue on WhatsApp</a>
-      </div>
-    `
-    : `
-      <div style="margin: 30px 0; text-align: center;">
-        <a href="${whatsappUrl}" class="button" style="background-color: #C5A880; color: #111111; padding: 14px 28px; text-decoration: none; font-family: monospace; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; display: inline-block;">Message via WhatsApp</a>
-      </div>
-    `;
+  const actionButtons = `
+    <div style="margin: 30px 0; text-align: center;">
+      <a href="${whatsappUrl}" class="button" style="background-color: #C5A880; color: #111111; padding: 14px 28px; text-decoration: none; font-family: monospace; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; display: inline-block;">Continue on WhatsApp</a>
+    </div>
+  `;
 
   return `
     <!DOCTYPE html>

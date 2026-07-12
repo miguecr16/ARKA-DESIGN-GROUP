@@ -127,8 +127,7 @@
 
         <!-- ACTION BUTTONS -->
         <div class="thank-you-actions">
-          <a href="#" id="thank-you-calendly-btn" class="btn btn-primary" style="display: none;">Schedule Consultation</a>
-          <a href="#" id="thank-you-wa-btn" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Continue on WhatsApp</a>
+          <a href="#" id="thank-you-wa-btn" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Continue on WhatsApp</a>
           <a href="index.html" class="btn btn-text" style="width: 100%; text-align: center; justify-content: center; margin-top: var(--space-md);">Return to Studio</a>
         </div>
 
@@ -171,7 +170,6 @@
         .then(res => res.json())
         .then(config => {
           const whatsappNumber = config.whatsappNumber || '18136109309';
-          const calendlyUrl = config.calendlyUrl || 'https://calendly.com/miguelangel16cr/30min';
           
           // Render WhatsApp button URL with pre-filled Lead ID
           const messageText = `Hello!\nI recently submitted a request through your website.\nLead ID:\n${leadId}\nI'd like to continue the conversation.`;
@@ -180,13 +178,6 @@
           const waBtn = document.getElementById('thank-you-wa-btn');
           if (waBtn) {
             waBtn.href = whatsappUrl;
-          }
-          
-          // Render Calendly button URL (if qualified)
-          const calendlyBtn = document.getElementById('thank-you-calendly-btn');
-          if (calendlyBtn && isQualified) {
-            calendlyBtn.href = calendlyUrl;
-            calendlyBtn.style.display = 'inline-flex';
           }
         })
         .catch(err => {
@@ -198,12 +189,6 @@
           
           const waBtn = document.getElementById('thank-you-wa-btn');
           if (waBtn) waBtn.href = whatsappUrl;
-          
-          const calendlyBtn = document.getElementById('thank-you-calendly-btn');
-          if (calendlyBtn && isQualified) {
-            calendlyBtn.href = 'https://calendly.com/miguelangel16cr/30min';
-            calendlyBtn.style.display = 'inline-flex';
-          }
         });
     });
   </script>
