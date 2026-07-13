@@ -46,17 +46,9 @@ class ArkaNavbar extends HTMLElement {
       </header>
 
       <!-- FLOATING ACTION BUTTON -->
-      <a href="https://wa.me/18136109309?text=${encodeURIComponent('Hello Arka Design Group, I am interested in initiating a project commission.')}" 
-         class="floating-cta arka-wa-btn arka-wa-btn-primary arka-wa-btn-md" 
-         id="floating-intake-btn" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         aria-label="Initiate Commission on WhatsApp"
-         role="button"
-         tabindex="0"
-         style="text-decoration: none;">
-        ${WHATSAPP_ICON_SVG}
-        <span class="arka-wa-btn-text">Initiate Commission</span>
+      <a href="contact.html" class="floating-cta btn btn-primary" id="floating-intake-btn">
+        <span>Initiate Commission</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
     `;
 
@@ -104,25 +96,6 @@ class ArkaNavbar extends HTMLElement {
     const header = this.querySelector('.site-header');
     const fab = this.querySelector('#floating-intake-btn');
 
-    if (fab) {
-      fab.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const trackingEvent = new CustomEvent('arka-analytics', {
-          bubbles: true,
-          detail: {
-            event: 'WhatsApp Clicked',
-            data: {
-              page: activePage,
-              service: 'none',
-              position: 'floating-mobile-cta',
-              url: fab.getAttribute('href')
-            }
-          }
-        });
-        this.dispatchEvent(trackingEvent);
-      });
-    }
-
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header.classList.add('scrolled');
@@ -161,12 +134,11 @@ class ArkaHero extends HTMLElement {
 
     let actionsHtml = '';
     if (ctaText && ctaLink) {
-      actionsHtml += `<arka-whatsapp-button variant="primary" size="md" label="${ctaText}" position="hero-primary"></arka-whatsapp-button>`;
+      actionsHtml += `<a href="${ctaLink}" class="btn btn-primary">${ctaText}</a>`;
     }
     if (secText && secLink) {
       actionsHtml += `<a href="${secLink}" class="btn btn-secondary">${secText}</a>`;
     }
-    actionsHtml += `<arka-whatsapp-button variant="secondary" size="md" position="hero"></arka-whatsapp-button>`;
 
     this.innerHTML = `
       <section class="hero-section" style="background: radial-gradient(circle at center, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.95) 100%), url('${bgImage}') center/cover no-repeat;">
@@ -354,8 +326,8 @@ class ArkaCtaSection extends HTMLElement {
           <h2 class="h2" style="margin-bottom: var(--space-md);">${title}</h2>
           <p style="color: var(--color-muted); margin-bottom: var(--space-xl);">${desc}</p>
           <div class="flex" style="gap: var(--space-sm); justify-content: center; align-items: center; flex-wrap: wrap;">
-            <arka-whatsapp-button variant="primary" size="md" label="${btnText}" position="final-cta-primary"></arka-whatsapp-button>
-            <arka-whatsapp-button variant="secondary" size="md" position="final-cta-secondary"></arka-whatsapp-button>
+            <a href="contact.html" class="btn btn-primary">${btnText}</a>
+            <arka-whatsapp-button variant="secondary" size="md" position="final-cta"></arka-whatsapp-button>
           </div>
         </div>
       </section>
