@@ -369,7 +369,7 @@ class ArkaFooter extends HTMLElement {
               <ul>
                 <li><a href="tel:8136109309">(813) 610-9309</a></li>
                 <li><a href="mailto:info@arkadg.com">info@arkadg.com</a></li>
-                <li><a href="about.html">Ocala Studio & Workshop</a></li>
+                <li><a href="about.html" style="line-height: 1.5; display: inline-block;">Ocala Studio & Workshop<br><span style="font-size: var(--text-small); color: var(--color-muted);">2312 SE 18th Cir, Ocala, FL 34471</span></a></li>
               </ul>
             </div>
           </div>
