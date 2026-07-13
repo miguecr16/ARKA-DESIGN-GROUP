@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "jimp": "^0.16.1",
     "resend": "^3.2.0"
   }
 }
