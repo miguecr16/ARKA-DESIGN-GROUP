@@ -312,7 +312,6 @@ class ArkaCtaSection extends HTMLElement {
     const title = this.getAttribute('title') || 'Entrust your vision to our studio.';
     const desc = this.getAttribute('desc') || 'We invite you to share details of your planned custom renovation or design-build project in Florida.';
     const btnText = this.getAttribute('btn-text') || 'Initiate Private Commission';
-    const btnLink = this.getAttribute('btn-link') || 'contact.html';
 
     this.innerHTML = `
       <section class="section container text-center">
@@ -321,8 +320,8 @@ class ArkaCtaSection extends HTMLElement {
           <h2 class="h2" style="margin-bottom: var(--space-md);">${title}</h2>
           <p style="color: var(--color-muted); margin-bottom: var(--space-xl);">${desc}</p>
           <div class="flex" style="gap: var(--space-sm); justify-content: center; align-items: center; flex-wrap: wrap;">
-            <a href="${btnLink}" class="btn btn-primary">${btnText}</a>
-            <arka-whatsapp-button variant="secondary" size="md" position="final-cta"></arka-whatsapp-button>
+            <arka-whatsapp-button variant="primary" size="md" label="${btnText}" position="final-cta-primary"></arka-whatsapp-button>
+            <arka-whatsapp-button variant="secondary" size="md" position="final-cta-secondary"></arka-whatsapp-button>
           </div>
         </div>
       </section>
