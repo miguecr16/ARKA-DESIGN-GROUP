@@ -40,10 +40,7 @@ class ArkaNavbar extends HTMLElement {
       </header>
 
       <!-- FLOATING ACTION BUTTON -->
-      <a href="contact.html" class="floating-cta btn btn-primary" id="floating-intake-btn">
-        <span>Initiate Commission</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
+      <arka-whatsapp-button variant="primary" size="md" label="Initiate Commission" position="floating-mobile-cta" id="floating-intake-btn" class="floating-cta"></arka-whatsapp-button>
     `;
 
     // Bind mobile menu toggle listeners
@@ -127,7 +124,7 @@ class ArkaHero extends HTMLElement {
 
     let actionsHtml = '';
     if (ctaText && ctaLink) {
-      actionsHtml += `<a href="${ctaLink}" class="btn btn-primary">${ctaText}</a>`;
+      actionsHtml += `<arka-whatsapp-button variant="primary" size="md" label="${ctaText}" position="hero-primary"></arka-whatsapp-button>`;
     }
     if (secText && secLink) {
       actionsHtml += `<a href="${secLink}" class="btn btn-secondary">${secText}</a>`;
