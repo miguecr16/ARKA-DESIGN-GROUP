@@ -35,7 +35,6 @@ class ArkaNavbar extends HTMLElement {
             <a href="about.html" class="btn-text ${activePage === 'about.html' ? 'active' : ''}" id="nav-about" style="${activePage === 'about.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'about.html' ? 'page' : 'false'}">About</a>
             <a href="reviews.html" class="btn-text ${activePage === 'reviews.html' ? 'active' : ''}" id="nav-reviews" style="${activePage === 'reviews.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'reviews.html' ? 'page' : 'false'}">Reviews</a>
             <a href="service-areas.html" class="btn-text ${activePage === 'service-areas.html' ? 'active' : ''}" id="nav-service-areas" style="${activePage === 'service-areas.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'service-areas.html' ? 'page' : 'false'}">Areas</a>
-            <button class="btn-text portal-btn" id="nav-specs" data-view="design-system-view" style="display: none;">Specs</button>
             <a href="contact.html" class="btn btn-secondary" ${isContactActive} id="nav-contact" aria-current="${activePage === 'contact.html' ? 'page' : 'false'}">Contact</a>
           </nav>
         </div>
@@ -378,8 +377,6 @@ class ArkaFooter extends HTMLElement {
           <div class="footer-copyright">
             <div>&copy; 2026 Arka Design Group LLC. All Rights Reserved.</div>
             <div class="flex" style="gap: var(--space-md); align-items: center; flex-wrap: wrap;">
-              <a href="index.html?view=specs" style="color: var(--color-brass);">Design Specs Portal</a>
-              <span>|</span>
               <span>Bespoke Florida Architecture & Cabinetry</span>
             </div>
           </div>

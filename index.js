@@ -50,12 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- URL PARAMETER CHECK FOR PORTAL SWITCH ---
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('view') === 'specs' || urlParams.get('specs') === 'true') {
-    const specsBtn = document.getElementById('nav-specs');
-    if (specsBtn) specsBtn.click();
-  }
+
 
 
   // --- CLIPBOARD COPY UTILITY ---
