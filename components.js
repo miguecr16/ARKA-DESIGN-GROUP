@@ -34,7 +34,6 @@ class ArkaNavbar extends HTMLElement {
             <a href="portfolio.html" class="btn-text ${activePage === 'portfolio.html' ? 'active' : ''}" id="nav-portfolio" style="${activePage === 'portfolio.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'portfolio.html' ? 'page' : 'false'}">Portfolio</a>
             <a href="about.html" class="btn-text ${activePage === 'about.html' ? 'active' : ''}" id="nav-about" style="${activePage === 'about.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'about.html' ? 'page' : 'false'}">About</a>
             <a href="reviews.html" class="btn-text ${activePage === 'reviews.html' ? 'active' : ''}" id="nav-reviews" style="${activePage === 'reviews.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'reviews.html' ? 'page' : 'false'}">Reviews</a>
-            <a href="service-areas.html" class="btn-text ${activePage === 'service-areas.html' ? 'active' : ''}" id="nav-service-areas" style="${activePage === 'service-areas.html' ? 'color: var(--color-white);' : ''}" aria-current="${activePage === 'service-areas.html' ? 'page' : 'false'}">Areas</a>
             <a href="contact.html" class="btn btn-secondary" ${isContactActive} id="nav-contact" aria-current="${activePage === 'contact.html' ? 'page' : 'false'}">Contact</a>
           </nav>
         </div>
@@ -352,16 +351,12 @@ class ArkaFooter extends HTMLElement {
                 <li><a href="portfolio.html">Our Curation</a></li>
                 <li><a href="services.html">Our Services</a></li>
                 <li><a href="contact.html">Consultation</a></li>
-                <li><a href="service-areas.html">Service Areas</a></li>
               </ul>
             </div>
             <div class="footer-links">
               <h5>Locations</h5>
               <ul>
-                <li><a href="orlando.html">Orlando</a></li>
-                <li><a href="tampa.html">Tampa</a></li>
-                <li><a href="miami.html">Miami</a></li>
-                <li><a href="ocala.html">Ocala</a></li>
+                <li><a href="about.html">Florida</a></li>
               </ul>
             </div>
             <div class="footer-links">
@@ -369,7 +364,7 @@ class ArkaFooter extends HTMLElement {
               <ul>
                 <li><a href="tel:8136109309">(813) 610-9309</a></li>
                 <li><a href="mailto:info@arkadg.com">info@arkadg.com</a></li>
-                <li><a href="about.html" style="line-height: 1.5; display: inline-block;">Ocala Studio & Workshop<br><span style="font-size: var(--text-small); color: var(--color-muted);">2312 SE 18th Cir, Ocala, FL 34471</span></a></li>
+                <li style="color: var(--color-muted); font-size: var(--text-small); line-height: 1.5;">2312 SE 18th Cir, Ocala, FL 34471</li>
               </ul>
             </div>
           </div>
