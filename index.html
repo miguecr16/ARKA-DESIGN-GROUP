@@ -28,6 +28,7 @@
   <meta property="twitter:image" content="https://arkadesigngroup.com/assets/images/estate_exterior.webp">
 
   <link rel="stylesheet" href="index.css">
+  <script src="config/social.js"></script>
   
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
@@ -93,6 +94,7 @@
   </script>
 </head>
 <body>
+  <arka-social-floating-bar></arka-social-floating-bar>
 
   <!-- TOAST NOTIFICATION FOR COPY TO CLIPBOARD -->
   <div id="toast" class="toast" role="alert" aria-live="polite">Copied to clipboard</div>
@@ -192,6 +194,26 @@
       </div>
     </section>
 
+    <!-- INSTAGRAM SHOWCASE SECTION -->
+    <section class="section" id="instagram-showcase" style="border-top: 1px solid var(--color-border-dark);">
+      <div class="container">
+        <div class="text-center" style="max-width: 700px; margin: 0 auto var(--space-3xl);">
+          <span class="section-label">Social Curation</span>
+          <h2 class="h2">Follow Our Latest Transformations</h2>
+          <p class="lead" style="margin-top: var(--space-sm);">Discover our latest completed kitchens, custom cabinetry, luxury interiors and behind-the-scenes craftsmanship across Florida.</p>
+        </div>
+        
+        <!-- FEATURED POST -->
+        <arka-instagram-featured></arka-instagram-featured>
+        
+        <!-- GALLERY -->
+        <arka-instagram-gallery></arka-instagram-gallery>
+        
+        <!-- SOCIAL PLATFORM CARDS -->
+        <arka-social-links></arka-social-links>
+      </div>
+    </section>
+
     <!-- THE PROCESS (ATELIER METHOD) -->
     <section class="section" id="process" style="background-color: var(--color-alabaster);">
       <div class="container">
@@ -221,6 +243,9 @@
 
     <!-- REUSABLE SOFT CALL TO ACTION BANNER -->
     <arka-cta-section></arka-cta-section>
+
+    <!-- FOLLOW OUR JOURNEY SECTION -->
+    <arka-follow-section></arka-follow-section>
 
     <!-- REUSABLE GLOBAL FOOTER -->
     <arka-footer></arka-footer>

@@ -375,6 +375,8 @@ class ArkaFooter extends HTMLElement {
               <span>Bespoke Florida Architecture & Cabinetry</span>
             </div>
           </div>
+          <div class="brass-line" style="margin: var(--space-xl) 0 var(--space-md); opacity: 0.1;"></div>
+          <arka-social-footer></arka-social-footer>
         </div>
       </footer>
       <arka-whatsapp-button floating="true"></arka-whatsapp-button>
@@ -835,3 +837,278 @@ class ArkaWhatsAppButton extends HTMLElement {
 }
 
 customElements.define('arka-whatsapp-button', ArkaWhatsAppButton);
+
+
+/* --- PREMIUM SOCIAL INTEGRATION COMPONENTS --- */
+
+const getSocialConfig = () => window.ArkaSocialConfig || {
+  instagram: { url: "https://www.instagram.com/arka_dg", username: "@arka_dg" },
+  tiktok: { url: "https://www.tiktok.com/@arka_dg", username: "@arka_dg" },
+  facebook: { url: "https://www.facebook.com/people/Arka-Design-Group/61575340162075/", name: "Arka Design Group" },
+  floatingBar: { enabled: true }
+};
+
+const INSTAGRAM_SVG = `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="social-svg-icon" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`;
+
+const TIKTOK_SVG = `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="social-svg-icon" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>`;
+
+const FACEBOOK_SVG = `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="social-svg-icon" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>`;
+
+class ArkaInstagramFeatured extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<div class="instagram-featured-loading">Loading Transformation Spec...</div>`;
+    
+    fetch('data/social-posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const feat = posts.find(p => p.featured) || posts[0];
+        if (!feat) {
+          this.innerHTML = '';
+          return;
+        }
+        
+        const config = getSocialConfig();
+        
+        this.innerHTML = `
+          <div class="ig-featured-card">
+            <div class="ig-featured-media">
+              <img src="${feat.image}" alt="${feat.title}" loading="lazy" class="ig-featured-img">
+              <div class="ig-featured-badge">
+                ${INSTAGRAM_SVG}
+                <span>Instagram Curation</span>
+              </div>
+            </div>
+            <div class="ig-featured-content">
+              <div class="ig-featured-meta">
+                <span class="ig-featured-cat">${feat.category}</span>
+                <span class="ig-featured-divider">&bull;</span>
+                <span class="ig-featured-loc">${feat.location}</span>
+              </div>
+              <h3 class="ig-featured-title font-serif italic">${feat.title}</h3>
+              <p class="ig-featured-desc">${feat.description}</p>
+              <div style="margin-top: auto; padding-top: var(--space-md);">
+                <a href="${config.instagram.url}" class="btn btn-primary btn-ig" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-xs);">
+                  ${INSTAGRAM_SVG}
+                  <span>View on Instagram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      })
+      .catch(err => {
+        console.error('Error rendering featured Instagram post:', err);
+        this.innerHTML = `<div style="color: var(--color-muted); font-size: var(--text-small);">Failed to load latest Instagram transformation.</div>`;
+      });
+  }
+}
+customElements.define('arka-instagram-featured', ArkaInstagramFeatured);
+
+class ArkaInstagramGallery extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<div class="instagram-gallery-loading">Loading Gallery Feed...</div>`;
+    
+    fetch('data/social-posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const galleryPosts = posts.filter(p => !p.featured);
+        
+        let html = `<div class="ig-gallery-grid">`;
+        galleryPosts.forEach(post => {
+          html += `
+            <a href="${post.url}" class="ig-gallery-card" target="_blank" rel="noopener noreferrer" aria-label="View post '${post.title}' on Instagram">
+              <div class="ig-gallery-media">
+                <img src="${post.image}" alt="${post.title}" loading="lazy" class="ig-gallery-img">
+                <div class="ig-gallery-overlay">
+                  <div class="ig-gallery-hover-content">
+                    <div style="margin-bottom: var(--space-xs);">${INSTAGRAM_SVG}</div>
+                    <span class="ig-gallery-hover-text">View on Instagram</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ig-gallery-caption">
+                <span class="ig-gallery-loc">${post.location}</span>
+                <h4 class="ig-gallery-title">${post.title}</h4>
+              </div>
+            </a>
+          `;
+        });
+        html += `</div>`;
+        this.innerHTML = html;
+      })
+      .catch(err => {
+        console.error('Error rendering Instagram gallery:', err);
+        this.innerHTML = `<div style="text-align: center; color: var(--color-muted); padding: var(--space-xl) 0;">Failed to load Instagram gallery items.</div>`;
+      });
+  }
+}
+customElements.define('arka-instagram-gallery', ArkaInstagramGallery);
+
+class ArkaSocialCard extends HTMLElement {
+  connectedCallback() {
+    const platform = this.getAttribute('platform') || 'instagram';
+    const description = this.getAttribute('description') || '';
+    const buttonText = this.getAttribute('button-text') || 'Follow Us';
+    
+    const config = getSocialConfig();
+    let platformConfig = config.instagram;
+    let iconSvg = INSTAGRAM_SVG;
+    
+    if (platform === 'tiktok') {
+      platformConfig = config.tiktok;
+      iconSvg = TIKTOK_SVG;
+    } else if (platform === 'facebook') {
+      platformConfig = config.facebook;
+      iconSvg = FACEBOOK_SVG;
+    }
+    
+    this.innerHTML = `
+      <div class="social-promo-card">
+        <div class="social-promo-icon-wrapper platform-${platform}">
+          ${iconSvg}
+        </div>
+        <h4 class="social-promo-name">${platform.charAt(0).toUpperCase() + platform.slice(1)}</h4>
+        <p class="social-promo-desc">${description}</p>
+        <a href="${platformConfig.url}" class="btn btn-secondary social-promo-btn" target="_blank" rel="noopener noreferrer" style="margin-top: auto; width: 100%; justify-content: center; display: inline-flex; align-items: center; gap: var(--space-xs);">
+          ${iconSvg}
+          <span>${buttonText}</span>
+        </a>
+      </div>
+    `;
+  }
+}
+customElements.define('arka-social-card', ArkaSocialCard);
+
+class ArkaSocialLinks extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <div class="social-cards-grid">
+        <arka-social-card 
+          platform="instagram" 
+          description="Explore our latest remodeling projects, completed kitchens and luxury interiors." 
+          button-text="Follow @arka_dg">
+        </arka-social-card>
+        <arka-social-card 
+          platform="tiktok" 
+          description="Watch behind-the-scenes videos, installations and project transformations." 
+          button-text="Watch on TikTok">
+        </arka-social-card>
+        <arka-social-card 
+          platform="facebook" 
+          description="Stay connected with company updates, customer stories and completed projects." 
+          button-text="Follow on Facebook">
+        </arka-social-card>
+      </div>
+    `;
+  }
+}
+customElements.define('arka-social-links', ArkaSocialLinks);
+
+class ArkaSocialFooter extends HTMLElement {
+  connectedCallback() {
+    const config = getSocialConfig();
+    this.innerHTML = `
+      <div class="social-footer-container">
+        <h4 class="social-footer-title">Follow Arka Design Group</h4>
+        <p class="social-footer-subtitle">Join our community and stay inspired by our latest transformations.</p>
+        <div class="social-footer-icons flex justify-center" style="gap: var(--space-md); margin-top: var(--space-md);">
+          <a href="${config.instagram.url}" class="social-footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Follow Arka Design Group on Instagram">
+            ${INSTAGRAM_SVG}
+          </a>
+          <a href="${config.tiktok.url}" class="social-footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Follow Arka Design Group on TikTok">
+            ${TIKTOK_SVG}
+          </a>
+          <a href="${config.facebook.url}" class="social-footer-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Follow Arka Design Group on Facebook">
+            ${FACEBOOK_SVG}
+          </a>
+        </div>
+      </div>
+    `;
+  }
+}
+customElements.define('arka-social-footer', ArkaSocialFooter);
+
+class ArkaSocialFloatingBar extends HTMLElement {
+  connectedCallback() {
+    const config = getSocialConfig();
+    if (!config.floatingBar.enabled) {
+      this.style.display = 'none';
+      return;
+    }
+    
+    this.innerHTML = `
+      <div class="social-floating-bar-wrapper" role="complementary" aria-label="Social Links Panel">
+        <div class="social-floating-bar">
+          <a href="${config.instagram.url}" class="social-float-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            ${INSTAGRAM_SVG}
+            <span class="social-float-label">Instagram</span>
+          </a>
+          <a href="${config.tiktok.url}" class="social-float-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            ${TIKTOK_SVG}
+            <span class="social-float-label">TikTok</span>
+          </a>
+          <a href="${config.facebook.url}" class="social-float-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            ${FACEBOOK_SVG}
+            <span class="social-float-label">Facebook</span>
+          </a>
+        </div>
+      </div>
+    `;
+  }
+}
+customElements.define('arka-social-floating-bar', ArkaSocialFloatingBar);
+
+class ArkaFollowSection extends HTMLElement {
+  connectedCallback() {
+    const config = getSocialConfig();
+    this.innerHTML = `
+      <section class="section follow-journey-section" style="background-color: var(--color-alabaster);">
+        <div class="container text-center" style="max-width: 800px;">
+          <span class="section-label">Follow Our Journey</span>
+          <h2 class="h2 font-serif italic" style="margin-bottom: var(--space-md);">Crafting Bespoke Spaces Daily</h2>
+          <p class="lead" style="margin-bottom: var(--space-xl); max-width: 600px; margin-left: auto; margin-right: auto;">
+            Follow us for daily project updates, remodeling inspiration and behind-the-scenes craftsmanship.
+          </p>
+          <div class="flex justify-center" style="margin-top: var(--space-lg);">
+            <a href="${config.instagram.url}" class="btn btn-primary btn-ig-primary" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-xs); padding: var(--space-md) var(--space-xxl);">
+              ${INSTAGRAM_SVG}
+              <span>Follow Arka Design Group</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+}
+customElements.define('arka-follow-section', ArkaFollowSection);
+
+class ArkaProjectSocialCta extends HTMLElement {
+  connectedCallback() {
+    const config = getSocialConfig();
+    this.innerHTML = `
+      <section class="section container text-center" style="padding-top: var(--space-xl); padding-bottom: var(--space-xl);">
+        <div style="max-width: 600px; margin: 0 auto;">
+          <h3 class="h3" style="margin-bottom: var(--space-xs); font-family: var(--font-serif); font-style: italic;">Love this transformation?</h3>
+          <p class="lead" style="color: var(--color-muted); margin-bottom: var(--space-lg); font-size: var(--text-body-large);">
+            Follow Arka Design Group for more remodeling inspiration.
+          </p>
+          <div class="flex justify-center" style="gap: var(--space-md); flex-wrap: wrap;">
+            <a href="${config.instagram.url}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-xs); font-size: var(--text-small);">
+              ${INSTAGRAM_SVG}
+              <span>Instagram</span>
+            </a>
+            <a href="${config.tiktok.url}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-xs); font-size: var(--text-small);">
+              ${TIKTOK_SVG}
+              <span>TikTok</span>
+            </a>
+            <a href="${config.facebook.url}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: var(--space-xs); font-size: var(--text-small);">
+              ${FACEBOOK_SVG}
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+}
+customElements.define('arka-project-social-cta', ArkaProjectSocialCta);

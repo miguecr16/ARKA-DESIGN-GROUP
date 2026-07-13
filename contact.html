@@ -27,6 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="index.css">
+  <script src="config/social.js"></script>
   
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
@@ -92,6 +93,7 @@
   </script>
 </head>
 <body>
+  <arka-social-floating-bar></arka-social-floating-bar>
 
   <!-- TOAST NOTIFICATION FOR COPY TO CLIPBOARD -->
   <div id="toast" class="toast" role="alert" aria-live="polite">Copied to clipboard</div>
@@ -112,6 +114,21 @@
 
       <!-- REUSABLE INTAKE FORM COMPONENT -->
       <arka-intake-form></arka-intake-form>
+    </section>
+
+    <!-- STAY CONNECTED SECTION -->
+    <section class="container" style="margin-top: var(--space-4xl); border-top: 1px solid var(--color-border-dark); padding-top: var(--space-4xl);">
+      <div class="text-center" style="max-width: 600px; margin: 0 auto var(--space-xl);">
+        <span class="section-label">Stay Connected</span>
+        <h2 class="h2">Follow Our Journey</h2>
+        <p class="lead" style="margin-top: var(--space-sm);">Follow our latest remodeling projects and design inspiration.</p>
+      </div>
+      
+      <!-- REUSABLE SOCIAL CARDS -->
+      <arka-social-links></arka-social-links>
+      
+      <!-- Future QR Codes Area -->
+      <div class="qr-placeholder" aria-hidden="true" style="margin-top: var(--space-xl);"></div>
     </section>
   </main>
 

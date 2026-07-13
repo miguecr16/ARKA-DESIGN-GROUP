@@ -27,6 +27,7 @@
   <meta property="twitter:image" content="https://arkadesigngroup.com/assets/images/estate_exterior.webp">
 
   <link rel="stylesheet" href="index.css">
+  <script src="config/social.js"></script>
   
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
@@ -92,6 +93,7 @@
   </script>
 </head>
 <body>
+  <arka-social-floating-bar></arka-social-floating-bar>
 
   <!-- TOAST NOTIFICATION FOR COPY TO CLIPBOARD -->
   <div id="toast" class="toast" role="alert" aria-live="polite">Copied to clipboard</div>
@@ -144,7 +146,8 @@
 
       <!-- PORTFOLIO CRO CTA -->
       <div style="margin-top: var(--space-4xl); text-align: center;">
-        <arka-cta-section 
+        <arka-project-social-cta></arka-project-social-cta>
+    <arka-cta-section 
           title="Ready to manifest your spatial vision?" 
           desc="Apply for our select design-build registry to secure your site commission.">
         </arka-cta-section>

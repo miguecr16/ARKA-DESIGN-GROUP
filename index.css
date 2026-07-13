@@ -2052,3 +2052,434 @@ body.nav-lock {
 }
 
 
+/* ==========================================================================
+   PHASE 14 - PREMIUM SOCIAL INTEGRATION & INSTAGRAM SHOWCASE
+   ========================================================================== */
+
+/* 1. Featured Instagram Post */
+.ig-featured-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-alabaster);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  margin-bottom: var(--space-3xl);
+  min-height: 420px;
+}
+
+@media (min-width: 768px) {
+  .ig-featured-card {
+    flex-direction: row;
+  }
+}
+
+.ig-featured-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--color-brass-rgb), 0.3);
+}
+
+.ig-featured-media {
+  position: relative;
+  flex: 1.2;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+@media (min-width: 768px) {
+  .ig-featured-media {
+    min-height: auto;
+  }
+}
+
+.ig-featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.ig-featured-card:hover .ig-featured-img {
+  transform: scale(1.04);
+}
+
+.ig-featured-badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  background: rgba(var(--color-obsidian-rgb), 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-brass);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ig-featured-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ig-featured-content {
+  flex: 1;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ig-featured-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.ig-featured-cat {
+  color: var(--color-brass);
+}
+
+.ig-featured-title {
+  font-size: var(--text-h2);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: var(--color-white);
+}
+
+.ig-featured-desc {
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-body);
+}
+
+/* 2. Instagram Gallery Grid */
+.ig-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .ig-gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ig-gallery-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.ig-gallery-card {
+  display: block;
+  text-decoration: none;
+  background: var(--color-alabaster);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-dark);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.ig-gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(var(--color-brass-rgb), 0.2);
+}
+
+.ig-gallery-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.ig-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.ig-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--color-obsidian-rgb), 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.ig-gallery-card:hover .ig-gallery-overlay {
+  opacity: 1;
+}
+
+.ig-gallery-card:hover .ig-gallery-img {
+  transform: scale(1.06);
+}
+
+.ig-gallery-hover-content {
+  text-align: center;
+  color: var(--color-white);
+  transform: translateY(10px);
+  transition: transform var(--transition-smooth) ease;
+}
+
+.ig-gallery-card:hover .ig-gallery-hover-content {
+  transform: translateY(0);
+}
+
+.ig-gallery-hover-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-brass);
+}
+
+.ig-gallery-caption {
+  padding: var(--space-sm);
+  background: var(--color-alabaster);
+}
+
+.ig-gallery-loc {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.ig-gallery-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-travertine);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 3. Social Promo Cards */
+.social-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin: var(--space-xxl) 0;
+}
+
+@media (min-width: 768px) {
+  .social-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.social-promo-card {
+  background: var(--color-alabaster);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  min-height: 280px;
+}
+
+.social-promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(var(--color-brass-rgb), 0.2);
+}
+
+.social-promo-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-full);
+  background: rgba(var(--color-obsidian-rgb), 0.8);
+  border: 1px solid var(--color-border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brass);
+  margin-bottom: var(--space-md);
+  transition: transform var(--transition-smooth);
+}
+
+.social-promo-card:hover .social-promo-icon-wrapper {
+  transform: scale(1.1);
+  color: var(--color-white);
+  border-color: var(--color-brass);
+}
+
+.social-promo-name {
+  font-size: var(--text-body-large);
+  font-weight: 600;
+  color: var(--color-travertine);
+  margin-bottom: var(--space-xs);
+  letter-spacing: 0.05em;
+}
+
+.social-promo-desc {
+  font-size: var(--text-small);
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+}
+
+/* 4. Social Footer Cta Block */
+.social-footer-container {
+  text-align: center;
+  padding: var(--space-lg) 0 0;
+}
+
+.social-footer-title {
+  font-size: var(--text-body-large);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+  margin-bottom: var(--space-xs);
+}
+
+.social-footer-subtitle {
+  font-size: var(--text-small);
+  color: var(--color-muted);
+}
+
+.social-footer-icon-link {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-alabaster);
+  border: 1px solid var(--color-border-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  transition: transform var(--transition-fast) cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              color var(--transition-fast) ease,
+              border-color var(--transition-fast) ease,
+              box-shadow var(--transition-fast) ease;
+}
+
+.social-footer-icon-link:hover {
+  transform: scale(1.15);
+  color: var(--color-white);
+  border-color: var(--color-brass);
+  box-shadow: 0 4px 12px rgba(var(--color-brass-rgb), 0.15);
+}
+
+/* 5. Desktop-Only Floating Social Bar */
+@media (max-width: 1023px) {
+  .social-floating-bar-wrapper {
+    display: none !important;
+  }
+}
+
+.social-floating-bar-wrapper {
+  position: fixed;
+  left: 0;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.social-floating-bar {
+  background: rgba(var(--color-alabaster-rgb), 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-dark);
+  border-left: none;
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+}
+
+.social-float-link {
+  display: flex;
+  align-items: center;
+  color: var(--color-muted);
+  text-decoration: none;
+  width: 32px;
+  overflow: hidden;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), color var(--transition-fast) ease;
+  white-space: nowrap;
+  padding: 4px;
+}
+
+.social-float-link svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.social-float-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-left: var(--space-sm);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: var(--color-brass);
+}
+
+.social-floating-bar:hover .social-float-link {
+  width: 130px;
+}
+
+.social-floating-bar:hover .social-float-label {
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.social-float-link:hover {
+  color: var(--color-white);
+}
+
+/* 6. Follow Our Journey & Social CTAs */
+.follow-journey-section {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border-dark);
+}
+
+.btn-ig-primary {
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.btn-ig-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(var(--color-brass-rgb), 0.25);
+}
+
+
+

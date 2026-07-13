@@ -1,0 +1,86 @@
+[
+  {
+    "id": "post-feat",
+    "platform": "instagram",
+    "image": "assets/images/kitchen_hero.webp",
+    "title": "The Windermere Calacatta Atelier Kitchen",
+    "category": "Atelier Kitchens",
+    "location": "Windermere, FL",
+    "description": "A masterfully executed culinary space featuring bookmatched Calacatta marble slab islands, flush wall integrations, custom walnut panel accents, and architectural low-voltage LED task lighting.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "July 2026",
+    "featured": true
+  },
+  {
+    "id": "post-1",
+    "platform": "instagram",
+    "image": "assets/images/cabinetry_detail.webp",
+    "title": "Bespoke White Oak Wardrobes",
+    "category": "Bespoke Closets",
+    "location": "Winter Park, FL",
+    "description": "Precision mitered white oak joinery detailing in a master suite walk-in closet commission.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "June 2026",
+    "featured": false
+  },
+  {
+    "id": "post-2",
+    "platform": "instagram",
+    "image": "assets/images/estate_exterior.webp",
+    "title": "Neoclassical Estate Facade",
+    "category": "Master Construction",
+    "location": "Golden Oak, FL",
+    "description": "Monolithic concrete lines meeting expansive glass partitions for a custom residence.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "June 2026",
+    "featured": false
+  },
+  {
+    "id": "post-3",
+    "platform": "instagram",
+    "image": "assets/images/kitchen_hero.webp",
+    "title": "Walnut Joinery & Led Accents",
+    "category": "Atelier Kitchens",
+    "location": "Lake Nona, FL",
+    "description": "Custom cabinetry solutions matching warm 2700K integrated LED light tracks.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "May 2026",
+    "featured": false
+  },
+  {
+    "id": "post-4",
+    "platform": "instagram",
+    "image": "assets/images/cabinetry_detail.webp",
+    "title": "Bespoke Leather Drawer Liners",
+    "category": "Bespoke Closets",
+    "location": "Winter Park, FL",
+    "description": "Hand-stitched leather liners and solid wood organizers for custom dressing drawers.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "May 2026",
+    "featured": false
+  },
+  {
+    "id": "post-5",
+    "platform": "instagram",
+    "image": "assets/images/estate_exterior.webp",
+    "title": "Equestrian Estate Framing",
+    "category": "Master Construction",
+    "location": "Ocala, FL",
+    "description": "Heavy timber frame design and site layouts optimized for equestrian corridor vistas.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "April 2026",
+    "featured": false
+  },
+  {
+    "id": "post-6",
+    "platform": "instagram",
+    "image": "assets/images/kitchen_hero.webp",
+    "title": "Travertine Backsplash Details",
+    "category": "Atelier Kitchens",
+    "location": "Sarasota, FL",
+    "description": "Fine travertine limestone tiling paired with seamless brass trim lines.",
+    "url": "https://www.instagram.com/arka_dg",
+    "date": "March 2026",
+    "featured": false
+  }
+]
